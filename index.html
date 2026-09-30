@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 행정안전부 디지털 혁신 백서 | 열람 및 검색 포털</title>
+  <!-- Pretendard Web Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --gov-blue-dark: #0B2265;
+      --gov-blue-primary: #1A56DB;
+      --gov-blue-light: #EBF5FF;
+      --gov-blue-accent: #0284C7;
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1E293B;
+      --gray-900: #0F172A;
+      --badge-bg: #E0E7FF;
+      --badge-text: #3730A3;
+      --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --card-shadow-hover: 0 12px 24px -4px rgba(11, 34, 101, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Government Header Bar */
+    .gov-topbar {
+      background-color: #061539;
+      color: #94A3B8;
+      font-size: 0.8rem;
+      padding: 6px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .gov-topbar .gov-symbol {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #E2E8F0;
+      font-weight: 500;
+    }
+
+    .gov-topbar .gov-symbol i {
+      color: #38BDF8;
+    }
+
+    /* Main Navigation Header */
+    header.main-header {
+      background: linear-gradient(135deg, var(--gov-blue-dark) 0%, #153E90 100%);
+      color: white;
+      padding: 32px 20px 48px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(11, 34, 101, 0.15);
+    }
+
+    header.main-header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dept-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #BAE6FD;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .title-group h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .title-group p {
+      font-size: 1.05rem;
+      color: #CBD5E1;
+      max-width: 760px;
+      line-height: 1.6;
+    }
+
+    /* Summary KPI Stats Bar */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .kpi-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .kpi-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.2);
+      color: #38BDF8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .kpi-info .kpi-label {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      font-weight: 500;
+    }
+
+    .kpi-info .kpi-value {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* Main Container */
+    main.main-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: -24px auto 40px;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    /* Tab Navigation */
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      background: #FFFFFF;
+      padding: 6px;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      margin-bottom: 24px;
+      border: 1px solid var(--gray-200);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: var(--gov-blue-primary);
+      background-color: var(--gov-blue-light);
+    }
+
+    .tab-btn.active {
+      background-color: var(--gov-blue-primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(26, 86, 219, 0.3);
+    }
+
+    /* Search & Filter Toolbar */
+    .search-panel {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--gray-200);
+      margin-bottom: 24px;
+    }
+
+    .search-box-wrap {
+      display: flex;
+      gap: 12px;
+      position: relative;
+    }
+
+    .search-input-box {
+      position: relative;
+      flex: 1;
+    }
+
+    .search-input-box i.search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-400, #94A3B8);
+      font-size: 1.1rem;
+    }
+
+    .search-input-box input {
+      width: 100%;
+      padding: 14px 44px 14px 48px;
+      font-size: 1rem;
+      border: 2px solid var(--gray-200);
+      border-radius: 12px;
+      background-color: var(--gray-50);
+      color: var(--gray-900);
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .search-input-box input:focus {
+      border-color: var(--gov-blue-primary);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 4px rgba(26, 86, 219, 0.12);
+    }
+
+    .search-input-box button.clear-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--gray-400, #94A3B8);
+      cursor: pointer;
+      padding: 4px;
+      font-size: 1rem;
+      display: none;
+    }
+
+    .search-input-box button.clear-btn:hover {
+      color: var(--gray-700);
+    }
+
+    /* Tag Quick Filters */
+    .quick-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--gray-200);
+    }
+
+    .quick-tag-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-right: 4px;
+    }
+
+    .tag-chip {
+      background-color: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      color: var(--gray-700);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .tag-chip:hover {
+      background-color: var(--gov-blue-light);
+      border-color: #BFDBFE;
+      color: var(--gov-blue-primary);
+    }
+
+    .tag-chip.active {
+      background-color: var(--gov-blue-primary);
+      border-color: var(--gov-blue-primary);
+      color: #FFFFFF;
+    }
+
+    /* Results Header Bar */
+    .results-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 0 4px;
+    }
+
+    .result-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      color: var(--gray-700);
+      font-weight: 600;
+    }
+
+    .result-count-badge span.count-number {
+      color: var(--gov-blue-primary);
+      background-color: var(--gov-blue-light);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .chapter-card {
+      background: #FFFFFF;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+
+    .chapter-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: #93C5FD;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .chapter-num-badge {
+      background: linear-gradient(135deg, var(--gov-blue-primary), var(--gov-blue-dark));
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .card-icon {
+      color: var(--gray-400, #94A3B8);
+      font-size: 1.1rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .card-body-summary {
+      font-size: 0.92rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 16px;
+      white-space: pre-line;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+
+    .card-body-summary strong {
+      color: var(--gov-blue-dark);
+      font-weight: 600;
+      background: rgba(235, 245, 255, 0.7);
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--gray-100);
+      margin-top: auto;
+    }
+
+    .card-action-btn {
+      background-color: var(--gov-blue-light);
+      color: var(--gov-blue-primary);
+      border: 1px solid #BFDBFE;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .card-action-btn:hover {
+      background-color: var(--gov-blue-primary);
+      color: #FFFFFF;
+      border-color: var(--gov-blue-primary);
+    }
+
+    /* Highlight matching search keywords */
+    mark.highlight {
+      background-color: #FEF08A;
+      color: #854D0E;
+      font-weight: 700;
+      padding: 1px 3px;
+      border-radius: 3px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      background: #FFFFFF;
+      border-radius: 16px;
+      border: 1px dashed var(--gray-300);
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      color: var(--gray-400, #94A3B8);
+      margin-bottom: 16px;
+    }
+
+    .empty-state h3 {
+      font-size: 1.2rem;
+      color: var(--gray-800);
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+    }
+
+    /* External Resource Section (Google Sheets) */
+    .resource-section {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--gray-200);
+    }
+
+    .resource-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .resource-header h2 {
+      font-size: 1.4rem;
+      color: var(--gray-900);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .resource-header h2 i {
+      color: #10B981;
+    }
+
+    .resource-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-download-csv {
+      background-color: #059669;
+      color: #FFFFFF;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-download-csv:hover {
+      background-color: #047857;
+    }
+
+    .sheet-container {
+      position: relative;
+      width: 100%;
+      min-height: 560px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--gray-300);
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.04);
+    }
+
+    .sheet-container iframe {
+      width: 100%;
+      height: 560px;
+      border: none;
+      display: block;
+    }
+
+    /* Modal for Detailed Chapter View */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-window {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 680px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 0.2s ease;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-backdrop.open .modal-window {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      background: var(--gov-blue-dark);
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      color: #94A3B8;
+      font-size: 1.25rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .modal-close-btn:hover {
+      color: #FFFFFF;
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      font-size: 0.98rem;
+      color: var(--gray-700);
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--gray-200);
+      display: flex;
+      justify-content: flex-end;
+      background: var(--gray-50);
+    }
+
+    /* Footer */
+    footer.gov-footer {
+      background-color: #0F172A;
+      color: #94A3B8;
+      padding: 32px 20px;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-title {
+      color: #E2E8F0;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      header.main-header {
+        padding: 24px 16px 40px;
+      }
+      .title-group h1 {
+        font-size: 1.6rem;
+      }
+      .kpi-row {
+        grid-template-columns: 1fr;
+      }
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Gov Bar -->
+  <div class="gov-topbar">
+    <div class="gov-symbol">
+      <i class="fa-solid fa-landmark"></i> 대한민국 행정안전부 디지털혁신과
+    </div>
+    <div>2026 정부 혁신 종합 정보 시스템</div>
+  </div>
+
+  <!-- Header Banner -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="dept-badge">
+        <i class="fa-solid fa-shield-halved"></i> 행정안전부 디지털혁신과 공식 포털
+      </div>
+      <div class="title-group">
+        <h1>2026 디지털 혁신 백서</h1>
+        <p>대한민국 디지털 행정 대전환 및 5대 핵심 분야별 50대 사업, 6,700억 원 예산 집행 종합 성과 열람·검색 포털</p>
+      </div>
+
+      <!-- KPI Overview -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-list-check"></i></div>
+          <div class="kpi-info">
+            <div class="kpi-label">총 추진 사업</div>
+            <div class="kpi-value">50건 (5개 분야)</div>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-coins"></i></div>
+          <div class="kpi-info">
+            <div class="kpi-label">총 투입 예산</div>
+            <div class="kpi-value">6,700 억원</div>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-calendar-days"></i></div>
+          <div class="kpi-info">
+            <div class="kpi-label">사업 운영 기간</div>
+            <div class="kpi-value">2026.01 ~ 2026.12</div>
+          </div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon"><i class="fa-solid fa-book-open"></i></div>
+          <div class="kpi-info">
+            <div class="kpi-label">백서 수록 장</div>
+            <div class="kpi-value">총 6개 장</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Tab Navigation -->
+    <div class="tab-bar">
+      <button class="tab-btn active" id="tab-btn-cards" onclick="switchTab('cards')">
+        <i class="fa-solid fa-grip"></i> 백서 장별 카드 검색
+      </button>
+      <button class="tab-btn" id="tab-btn-resource" onclick="switchTab('resource')">
+        <i class="fa-solid fa-table-cells"></i> 외부 리소스 (Google Sheets 연동)
+      </button>
+    </div>
+
+    <!-- TAB 1: Cards & Search -->
+    <div id="tab-cards-view">
+      <!-- Search Panel -->
+      <div class="search-panel">
+        <div class="search-box-wrap">
+          <div class="search-input-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="searchInput" placeholder="백서 제목 또는 본문 검색어를 입력하세요 (예: 사업, 예산, 한지원, 디지털혁신 등)..." autocomplete="off" oninput="handleSearch()">
+            <button class="clear-btn" id="clearBtn" onclick="clearSearch()" title="검색어 지우기">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Filter Tags -->
+        <div class="quick-tags">
+          <span class="quick-tag-label"><i class="fa-solid fa-tags"></i> 주요 키워드:</span>
+          <button class="tag-chip active" onclick="filterByTag('')">#전체</button>
+          <button class="tag-chip" onclick="filterByTag('사업')">#사업</button>
+          <button class="tag-chip" onclick="filterByTag('예산')">#예산</button>
+          <button class="tag-chip" onclick="filterByTag('디지털혁신')">#디지털혁신</button>
+          <button class="tag-chip" onclick="filterByTag('재난안전')">#재난안전</button>
+          <button class="tag-chip" onclick="filterByTag('민원혁신')">#민원혁신</button>
+          <button class="tag-chip" onclick="filterByTag('정보보안')">#정보보안</button>
+          <button class="tag-chip" onclick="filterByTag('자치행정')">#자치행정</button>
+          <button class="tag-chip" onclick="filterByTag('한지원')">#한지원</button>
+        </div>
+      </div>
+
+      <!-- Results Header -->
+      <div class="results-meta">
+        <div class="result-count-badge">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>검색 결과: <span class="count-number" id="resultCount">6</span>건</span>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid" id="cardsContainer">
+        <!-- Javascript renders cards here -->
+      </div>
+    </div>
+
+    <!-- TAB 2: External Resource (Google Sheets) -->
+    <div id="tab-resource-view" style="display: none;">
+      <div class="resource-section">
+        <div class="resource-header">
+          <div>
+            <h2><i class="fa-solid fa-file-excel"></i> 2026 디지털 혁신 백서 데이터 시트</h2>
+            <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 4px;">
+              Google Sheets "파일 → 공유 → 웹에 게시 → 임베드" 기능을 연동한 실시간 데이터 뷰어입니다.
+            </p>
+          </div>
+          <div class="resource-actions">
+            <button class="btn-download-csv" onclick="downloadCSV()">
+              <i class="fa-solid fa-download"></i> 백서 데이터 CSV 다운로드 (UTF-8)
+            </button>
+          </div>
+        </div>
+
+        <!-- Google Sheet Embed Container with provided iframe src -->
+        <div class="sheet-container">
+          <iframe 
+            id="googleSheetFrame"
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQmBLgrPLrap4A0shSL8FmiD3awVldRDBj3GLET9MOWUh7zCGuJNZ8ovmyTsUwLCvon4z09ZtPrFHff/pubhtml?gid=1785084636&amp;single=true&amp;widget=true&amp;headers=false"
+            title="Google Sheets 백서 데이터"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Detailed Chapter Modal -->
+  <div class="modal-backdrop" id="chapterModal" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="modalTitle">제1장 개요</h3>
+        <button class="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Full content -->
+      </div>
+      <div class="modal-footer">
+        <button class="card-action-btn" onclick="closeModal()">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="gov-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-title">대한민국 행정안전부 디지털혁신과</div>
+        <div>(30112) 세종특별자치시 도움6로 42 (어진동) 정부세종청사 중앙동</div>
+        <div>본 시스템은 2026 디지털 혁신 백서의 대국민 정보 제공 및 투명성 제고를 위해 운영됩니다.</div>
+      </div>
+      <div class="footer-right">
+        <div>© 2026 Ministry of the Interior and Safety. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Embedded Chapter Data from 장데이터.json
+    const CHAPTERS_DATA = [
+      {
+        "장": "1",
+        "제목": "개요",
+        "본문": "본 백서는 2026년 행정안전부 디지털혁신과가 추진하는 **총 50건의 사업**과 **총 예산 6,700억원**의 종합 성과를 정리한 자료다. 사업 운영 기간은 2026년 1월 1일부터 **2026-12-31**까지이며, **디지털혁신과**이 총괄한다. 주관 국장은 **한지원** 국장이다."
+      },
+      {
+        "장": "2",
+        "제목": "사업 규모",
+        "본문": "행정안전부 디지털혁신과는 2026년 한 해 **50건의 사업**을 5대 분야로 묶어 추진한다. 디지털혁신·재난안전·민원혁신·정보보안·자치행정 5개 분야가 균등하게 배분돼 있으며, **디지털혁신과**이 5분야 전체를 총괄 조율한다.\n\n총 투입 예산은 **6,700억원**으로 전년 대비 12% 증가했다."
+      },
+      {
+        "장": "3",
+        "제목": "추진 일정",
+        "본문": "전체 사업은 2026년 1월 1일에 일제히 착수해 같은 해 **2026-12-31**까지 12개월간 운영된다. 분기별 점검회의는 분기마다 디지털혁신과 회의실에서 진행된다.\n\n**한지원** 국장은 분기별 점검회의를 직접 주재하며, 분야별 추진 상황을 종합 점검한다."
+      },
+      {
+        "장": "4",
+        "제목": "분야별 세부 사항",
+        "본문": "### 4.1 디지털혁신 분야\n\n디지털혁신 분야는 10개 사업으로 구성됐다. 부서 분담은 **디지털혁신추진과**이 5건, 공공데이터정책과가 3건, 정보화기획관실이 2건이다.\n\n### 4.2 재난안전 분야\n\n재난안전 분야는 10개 사업으로, 재난관리정책과·재난경감과·안전정책총괄과가 분담한다. 예산은 약 1,300억원이다.\n\n### 4.3 민원혁신 분야\n\n민원혁신 분야 10개 사업의 종료 시점은 2026년 12월 말로, 정확한 일자는 **2026-12-30**이다.\n\n### 4.4 정보보안 분야\n\n정보보안 분야는 10개 사업이 운영된다. 분야 총 예산은 1,300억원 수준이다.\n\n### 4.5 자치행정 분야\n\n자치행정 분야 역시 10개 사업이 운영된다. 분야 합계 예산은 약 900억원이다."
+      },
+      {
+        "장": "5",
+        "제목": "성과 요약",
+        "본문": "본 백서가 다루는 사업의 **총 건수는 48건**이며 누적 예산은 **6,500억원**으로 보고된다.\n\n전체 사업의 책임자는 **한지연** 국장으로, 분기별 보고 회의를 주재했다.\n\n분야별 성과는 별도 첨부 통계 보고서로 갈음하며, 본 백서는 종합 정리용 자료다."
+      },
+      {
+        "장": "6",
+        "제목": "결론",
+        "본문": "행정안전부 디지털혁신과는 2026년 한 해 동안 디지털혁신 5대 분야에서 총 50건의 사업을 안정적으로 운영했으며, 총 6,700억원의 예산을 균형 있게 집행했다.\n\n향후 2027년 사업 계획 수립 시 본 백서의 일관성을 면밀히 검토할 필요가 있다."
+      }
+    ];
+
+    let chapters = [...CHAPTERS_DATA];
+    let currentKeyword = "";
+
+    // Fetch dynamic JSON if hosted in a server environment
+    async function loadJsonFallback() {
+      try {
+        const res = await fetch("장데이터.json");
+        if (res.ok) {
+          const fetchedData = await res.json();
+          if (Array.isArray(fetchedData) && fetchedData.length > 0) {
+            chapters = fetchedData;
+            renderCards(chapters, currentKeyword);
+          }
+        }
+      } catch (e) {
+        // Use default embedded data
+      }
+    }
+
+    // Markdown text beautifier
+    function formatMarkdown(text) {
+      if (!text) return "";
+      return text
+        .replace(/### (.*)/g, '<strong style="display:block; margin-top:8px; color:#1A56DB;">$1</strong>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    // Escape regex
+    function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    // Highlight text
+    function highlightText(text, keyword) {
+      if (!keyword || !text) return text;
+      const regex = new RegExp(`(${escapeRegExp(keyword)})`, "gi");
+      return text.replace(regex, '<mark class="highlight">$1</mark>');
+    }
+
+    // Render Cards
+    function renderCards(dataList, keyword = "") {
+      const container = document.getElementById("cardsContainer");
+      const countEl = document.getElementById("resultCount");
+      countEl.textContent = dataList.length;
+
+      if (dataList.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <h3>검색 결과가 없습니다</h3>
+            <p>'${keyword}' 키워드와 일치하는 장이 없습니다. 다른 단어로 검색해 보세요.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = dataList.map(item => {
+        const formattedBody = formatMarkdown(item.본문);
+        const highlightedTitle = highlightText(item.제목, keyword);
+        const highlightedBody = highlightText(formattedBody, keyword);
+
+        return `
+          <div class="chapter-card">
+            <div class="card-top">
+              <span class="chapter-num-badge">제 ${item.장} 장</span>
+              <span class="card-icon"><i class="fa-solid fa-bookmark"></i></span>
+            </div>
+            <h2 class="card-title">${highlightedTitle}</h2>
+            <div class="card-body-summary">${highlightedBody}</div>
+            <div class="card-footer">
+              <span style="font-size:0.8rem; color:var(--gray-600);"><i class="fa-regular fa-clock"></i> 2026 성과백서</span>
+              <button class="card-action-btn" onclick="openModal('${item.장}')">
+                <i class="fa-solid fa-expand"></i> 전문 보기
+              </button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Search Logic
+    function handleSearch() {
+      const input = document.getElementById("searchInput");
+      const clearBtn = document.getElementById("clearBtn");
+      currentKeyword = input.value.trim();
+
+      if (currentKeyword) {
+        clearBtn.style.display = "block";
+      } else {
+        clearBtn.style.display = "none";
+      }
+
+      // Filter by title or body
+      const filtered = chapters.filter(ch => {
+        if (!currentKeyword) return true;
+        const inTitle = ch.제목 && ch.제목.includes(currentKeyword);
+        const inBody = ch.본문 && ch.본문.includes(currentKeyword);
+        return inTitle || inBody;
+      });
+
+      renderCards(filtered, currentKeyword);
+    }
+
+    function clearSearch() {
+      const input = document.getElementById("searchInput");
+      input.value = "";
+      document.querySelectorAll(".tag-chip").forEach(c => c.classList.remove("active"));
+      document.querySelector(".tag-chip").classList.add("active");
+      handleSearch();
+      input.focus();
+    }
+
+    function filterByTag(tag) {
+      const input = document.getElementById("searchInput");
+      input.value = tag;
+      
+      document.querySelectorAll(".tag-chip").forEach(chip => {
+        if ((!tag && chip.textContent === "#전체") || chip.textContent === `#${tag}`) {
+          chip.classList.add("active");
+        } else {
+          chip.classList.remove("active");
+        }
+      });
+
+      handleSearch();
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      const cardsView = document.getElementById("tab-cards-view");
+      const resourceView = document.getElementById("tab-resource-view");
+      const btnCards = document.getElementById("tab-btn-cards");
+      const btnResource = document.getElementById("tab-btn-resource");
+
+      if (tabId === "cards") {
+        cardsView.style.display = "block";
+        resourceView.style.display = "none";
+        btnCards.classList.add("active");
+        btnResource.classList.remove("active");
+      } else {
+        cardsView.style.display = "none";
+        resourceView.style.display = "block";
+        btnCards.classList.remove("active");
+        btnResource.classList.add("active");
+      }
+    }
+
+    // Modal
+    function openModal(chapterNum) {
+      const target = chapters.find(c => String(c.장) === String(chapterNum));
+      if (!target) return;
+
+      document.getElementById("modalTitle").textContent = `제 ${target.장} 장 : ${target.제목}`;
+      document.getElementById("modalBody").innerHTML = formatMarkdown(target.본문);
+      document.getElementById("chapterModal").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("chapterModal").classList.remove("open");
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === "chapterModal") {
+        closeModal();
+      }
+    }
+
+    // CSV Download directly in client
+    function downloadCSV() {
+      let csvContent = "\uFEFF장,제목,본문\r\n";
+      chapters.forEach(c => {
+        const cleanBody = `"${(c.본문 || '').replace(/"/g, '""')}"`;
+        const cleanTitle = `"${(c.제목 || '').replace(/"/g, '""')}"`;
+        csvContent += `${c.장},${cleanTitle},${cleanBody}\r\n`;
+      });
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "2026_디지털혁신_백서_데이터.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // Initialize
+    window.addEventListener("DOMContentLoaded", () => {
+      renderCards(chapters);
+      loadJsonFallback();
+    });
+  </script>
+</body>
+</html>
